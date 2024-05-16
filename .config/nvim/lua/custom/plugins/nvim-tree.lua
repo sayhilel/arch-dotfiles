@@ -1,11 +1,6 @@
 return {
-  "nvim-tree/nvim-tree.lua",
-  version = "*",
-  lazy = false,
+  'nvim-tree/nvim-tree.lua',
   dependencies = {
-    "nvim-tree/nvim-web-devicons",
+    'nvim-tree/nvim-web-devicons',
   },
-  config = function()
-    require("nvim-tree").setup {}
-  end,
 }

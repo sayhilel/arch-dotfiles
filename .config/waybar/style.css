@@ -1,0 +1,142 @@
+* {
+    border: none;
+    border-radius: 8px;
+    font-family: Iosevka, FontAwesome, Noto Sans CJK;
+    font-size: 12px;
+    font-style: normal;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #0D1117;
+    color: #C9D1D9;
+}
+
+#workspaces,
+#tray,
+#clock,
+#custom-weather,
+#custom-launcher,
+#custom-playerctl,
+#custom-playerlabel,
+#window,
+#custom-wf-recorder,
+#battery,
+#memory,
+#disk,
+#custom-hyprpicker {
+    margin: 5px;
+    padding: 0 5px;
+    font-weight: bold;
+}
+
+#workspaces {
+    padding: 0 5px;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    color: #58A6FF;
+}
+
+#workspaces button.active {
+    background-color: transparent;
+}
+
+#workspaces button:hover {
+    background-color: #21262D;
+    color: #C9D1D9;
+}
+
+#custom-launcher,
+#workspaces button.active,
+#custom-spotify,
+#battery,
+#network {
+    color: #8B949E;
+}
+
+#custom-date,
+#pulseaudio,
+#network {
+    background: transparent;
+    padding: 5px;
+}
+
+#custom-date {
+    color: #58A6FF;
+}
+
+#custom-power {
+    color: #FF7B72;
+    padding: 1px;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+#clock {
+    color: #C9D1D9;
+    padding: 0 10px;
+    font-weight: bold;
+}
+
+#custom-weather {
+    padding: 0 10px;
+}
+
+#battery.warning:not(.charging) {
+    background-color: #FF7B72;
+    color: #161B22;
+}
+
+#custom-spotify {
+    color: #58A6FF;
+    padding: 0 10px;
+}
+
+#pulseaudio {
+    color: #79C0FF;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#custom-launcher {
+    padding: 0 10px;
+    font-size: 20px;
+}
+
+#custom-launcher button:hover {
+    background-color: #21262D;
+    color: #C9D1D9;
+}
+
+#custom-playerctl {
+    color: #79C0FF;
+    padding: 0 15px;
+    font-size: 16px;
+}
+
+#custom-playerlabel,
+#window {
+    padding: 0 15px;
+    color: #C9D1D9;
+}
+
+#custom-wf-recorder {
+    color: #79C0FF;
+    background-color: #0D1117;
+    padding: 0 20px;
+}
+
+#cpu,
+#memory,
+#backlight,
+#disk {
+    color: #8B949E;
+    padding: 0 10px;
+}
+
+#battery {
+    color: #8B949E;
+    padding: 0 10px;
+}

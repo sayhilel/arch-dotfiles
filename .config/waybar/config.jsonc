@@ -20,6 +20,7 @@
         "pulseaudio",
         "network",
         "battery",
+        "custom/notification",
         "custom/power"
     ],
     // Modules configuration
@@ -177,5 +178,9 @@
         "format": "󰈋",
         "on-click": "hyprpicker -a -f hex",
         "on-click-right": "hyprpicker -a -f rgb"
+    },
+    "custom/notification": {
+        "format": "🔔",
+        "on-click": "swaync-client -t"
     }
 }

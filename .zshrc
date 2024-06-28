@@ -76,3 +76,8 @@ eval "$(zoxide init --cmd cd zsh)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+alias air='~/go/bin/air'
+
+# venv
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh

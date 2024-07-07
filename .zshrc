@@ -32,7 +32,7 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 # prompt
-eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/oposh.json)"
+eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/zen.toml)"
 
 # Keybindings
 bindkey -e
@@ -81,3 +81,11 @@ alias air='~/go/bin/air'
 # venv
 export WORKON_HOME=~/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
+
+source <(fzf --zsh)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/croxymoc/Apps/google-cloud-sdk/path.zsh.inc' ]; then . '/home/croxymoc/Apps/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/croxymoc/Apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/croxymoc/Apps/google-cloud-sdk/completion.zsh.inc'; fi

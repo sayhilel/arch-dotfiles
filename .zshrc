@@ -61,10 +61,12 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
+alias cat=bat
 alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
 alias z=cd
+alias air='~/go/bin/air'
 
 # Shell integrations
 eval "$(fzf --zsh)"
@@ -76,7 +78,6 @@ eval "$(zoxide init --cmd cd zsh)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-alias air='~/go/bin/air'
 
 # venv
 export WORKON_HOME=~/.virtualenvs
@@ -84,8 +85,9 @@ source /usr/bin/virtualenvwrapper.sh
 
 source <(fzf --zsh)
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/croxymoc/Apps/google-cloud-sdk/path.zsh.inc' ]; then . '/home/croxymoc/Apps/google-cloud-sdk/path.zsh.inc'; fi
+# Golang
+export GOPATH=$HOME/Utils/go
+export GOBIN=$GOPATH/bin
+export GOMODCACHE=$GOPATH/pkg/mod
+export PATH=$PATH:$GOBIN
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/croxymoc/Apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/croxymoc/Apps/google-cloud-sdk/completion.zsh.inc'; fi

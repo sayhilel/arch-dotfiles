@@ -1,0 +1,15 @@
+{
+  "name": "sea-bar",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "@ci-types/gjs": "^1.0.12",
+    "@girs/gjs": "^4.0.0-beta.6"
+  }
+}

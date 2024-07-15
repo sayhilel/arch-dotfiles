@@ -1,0 +1,14 @@
+[pyprland]
+plugins = ["scratchpads"]
+
+[scratchpads.term]
+animation = "fromTop"
+command = "alacritty --class scratchpad"
+lazy = true
+
+[scratchpads.music]
+animation = "fromTop"
+command = "spotify"
+class = "Spotify"
+match_by = "class"
+lazy = true

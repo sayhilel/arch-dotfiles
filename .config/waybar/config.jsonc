@@ -1,0 +1,93 @@
+{
+    "layer": "top",
+    "position": "top",
+    "margin-left": 8,
+    "margin-right": 8,
+    "margin-top": 6,
+    "spacing": 6,
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "clock",
+        "custom/spotify"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "battery",
+        "tray",
+        "custom/power"
+    ],
+    "custom/spotify": {
+        "format": " {}",
+        "max-length": 300,
+        "exec-if": "pgrep spotify",
+        "exec-on-event": "on-click",
+        "interval": 1,
+        "return-type": "json",
+        "on-click": " pypr toggle music && hyprctl dispatch bringactivetotop",
+        "on-scroll-up": "playerctl --player=spotify previous",
+        "on-scroll-down": "playerctl --player=spotify next",
+        "escape": true,
+        "exec": "~/.config/waybar/scripts/spotify.sh"
+    },
+    "hyprland/language": {
+        "format": "󰌌 {}",
+        "format-en": "Eng"
+    },
+    "tray": {
+        "icon-size": 18
+    },
+    "clock": {
+        "format-alt": "{:%a, %d. %b  %H:%M}"
+    },
+    "custom/launcher": {
+        "format": " "
+    },
+    "custom/power": {
+        "format": "⏻ ",
+        "on-click": "wlogout"
+    },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "{icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                ""
+            ]
+        },
+        "scroll-step": 1,
+        "on-click": "pavucontrol",
+        "ignored-sinks": [
+            "Easy Effects Sink"
+        ]
+    },
+    "battery": {
+        "bat": "BAT0",
+        "interval": 60,
+        "states": {
+            "average": 70,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-icons": [
+            " ",
+            " ",
+            " ",
+            " ",
+            " "
+        ],
+        "max-length": 25
+    }
+}

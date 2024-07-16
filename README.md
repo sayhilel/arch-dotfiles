@@ -5,4 +5,8 @@
 ## Bar: Waybar
 ## Text Editor: Neovim
 
-![](https://github.com/sayhilel/dotfiles/blob/master/example.mkv)
+
+
+Uploading example.mp4…
+
+

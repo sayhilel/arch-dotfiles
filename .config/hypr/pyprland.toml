@@ -11,4 +11,6 @@ animation = "fromTop"
 command = "spotify"
 class = "Spotify"
 match_by = "class"
+unfocus = "hide"
+size = "800px 600px"
 lazy = true

@@ -11,6 +11,7 @@
     ],
     "modules-center": [
         "clock",
+        "custom/spotify-menu",
         "custom/spotify"
     ],
     "modules-right": [
@@ -19,14 +20,18 @@
         "tray",
         "custom/power"
     ],
+    "custom/spotify-menu": {
+        "format": " ",
+        "on-click": " pypr toggle music && hyprctl dispatch bringactivetotop"
+    },
     "custom/spotify": {
-        "format": " {}",
+        "format": "{}",
         "max-length": 300,
         "exec-if": "pgrep spotify",
         "exec-on-event": "on-click",
         "interval": 1,
         "return-type": "json",
-        "on-click": " pypr toggle music && hyprctl dispatch bringactivetotop",
+        "on-click": "playerctl --player=spotify play-pause",
         "on-scroll-up": "playerctl --player=spotify previous",
         "on-scroll-down": "playerctl --player=spotify next",
         "escape": true,
@@ -72,7 +77,7 @@
         ]
     },
     "battery": {
-        "bat": "BAT0",
+        "bat": "BAT1",
         "interval": 60,
         "states": {
             "average": 70,

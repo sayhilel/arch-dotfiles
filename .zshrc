@@ -32,7 +32,7 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 # prompt
-eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/zen.toml)"
+eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/star.json)"
 
 # Keybindings
 bindkey -e
@@ -66,7 +66,7 @@ alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
 alias z=cd
-alias air='~/go/bin/air'
+alias air='~/Utils/go/bin/air'
 
 # Shell integrations
 eval "$(fzf --zsh)"
@@ -81,7 +81,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # venv
 export WORKON_HOME=~/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
+source /usr/bin/virtualenvwrapper_lazy.sh
 
 source <(fzf --zsh)
 

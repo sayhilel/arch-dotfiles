@@ -3,7 +3,8 @@ plugins = ["scratchpads"]
 
 [scratchpads.term]
 animation = "fromTop"
-command = "alacritty --class scratchpad"
+command = "kitty --class scratchpad"
+size = "800px 600px"
 lazy = true
 
 [scratchpads.music]

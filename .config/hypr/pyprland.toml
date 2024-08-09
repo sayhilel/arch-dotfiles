@@ -2,16 +2,14 @@
 plugins = ["scratchpads"]
 
 [scratchpads.term]
-animation = "fromTop"
+animation = "fromBottom"
 command = "kitty --class scratchpad"
 size = "800px 600px"
 lazy = true
 
 [scratchpads.music]
-animation = "fromTop"
-command = "spotify"
-class = "Spotify"
-match_by = "class"
+animation = "fromBottom"
+command = "spotify --enable-features=UseOzonePlatform --ozone-platform=wayland --class scratchpad"
 unfocus = "hide"
 size = "800px 600px"
 lazy = true

@@ -206,6 +206,28 @@ return {
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
+            if server_name == 'cssls' then
+              server.settings = {
+                css = {
+                  validate = false,
+                  lint = {
+                    unknownAtRules = 'ignore',
+                  },
+                },
+                scss = {
+                  validate = true,
+                  lint = {
+                    unknownAtRules = 'ignore',
+                  },
+                },
+                less = {
+                  validate = true,
+                  lint = {
+                    unknownAtRules = 'ignore',
+                  },
+                },
+              }
+            end
             -- This handles overriding only values explicitly passed
             -- by the server configuration above. Useful when disabling
             -- certain features of an LSP (for example, turning off formatting for tsserver)

@@ -1,98 +1,205 @@
 {
-    "layer": "top",
-    "position": "top",
-    "margin-left": 8,
-    "margin-right": 8,
-    "margin-top": 6,
-    "spacing": 6,
-    "modules-left": [
-        "custom/launcher",
-        "hyprland/workspaces"
+  // -------------------------------------------------------------------------
+  // Global configuration
+  // -------------------------------------------------------------------------
+  "layer": "top",
+  "position": "top",
+  "height": 35,
+  "margin-left": 10,
+  "margin-right": 10,
+  "spacing": 6,
+  "modules-left": [
+    "custom/logout",
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "group/mid"
+  ],
+  "modules-right": [
+    "tray",
+    "group/indicators"
+  ],
+  // -------------------------------------------------------------------------
+  // Module Groups
+  // -------------------------------------------------------------------------
+  "group/indicators": {
+    "orientation": "inherit",
+    "modules": [
+      "pulseaudio",
+      "backlight",
+      "clock#time",
+      "battery"
+    ]
+  },
+  "group/mid": {
+    "orientation": "inherit",
+    "modules": [
+      "custom/spotify",
+      "clock#date",
+      "custom/notification"
+    ]
+  },
+  // -------------------------------------------------------------------------
+  // Modules
+  // -------------------------------------------------------------------------
+  "custom/spotify": {
+    "format": "  {} ",
+    "max-length": 300,
+    "exec-if": "pgrep spotify",
+    "exec-on-event": "on-click",
+    "interval": 1,
+    "return-type": "json",
+    "on-click": "playerctl --player=spotify play-pause",
+    "on-scroll-up": "playerctl --player=spotify previous",
+    "on-scroll-down": "playerctl --player=spotify next",
+    "escape": true,
+    "exec": "~/.config/waybar/scripts/spotify.sh"
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%  ",
+    "format-icons": [
+      " ",
+      " ",
+      " ",
+      " ",
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
     ],
-    "modules-center": [
-        "clock",
-        "custom/spotify-menu",
-        "custom/spotify"
+    "tooltip": false
+  },
+  "battery": {
+    "interval": 10,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": " {icon}  {capacity}%", // Icon: bolt
+    "format-discharging": "{icon}  {capacity}%",
+    "format-icons": [
+      "  ", // Icon: battery-full
+      "  ", // Icon: battery-three-quarters
+      "  ", // Icon: battery-half
+      "  ", // Icon: battery-quarter
+      "  " // Icon: battery-empty
     ],
-    "modules-right": [
-        "pulseaudio",
-        "battery",
-        "tray",
-        "custom/power"
-    ],
-    "custom/spotify-menu": {
-        "format": " ",
-        "on-click": " pypr toggle music && hyprctl dispatch bringactivetotop"
+    "tooltip": true
+  },
+  "clock#time": {
+    "interval": 1,
+    "format": "  {:%H:%M} ",
+    "tooltip": false
+  },
+  "clock#date": {
+    "interval": 10,
+    "format": "{:%A,  %B %e} ", // Icon: calendar-alt
+    "locale": "en_US.UTF-8",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
     },
-    "custom/spotify": {
-        "format": "{}",
-        "max-length": 300,
-        "exec-if": "pgrep spotify",
-        "exec-on-event": "on-click",
-        "interval": 1,
-        "return-type": "json",
-        "on-click": "playerctl --player=spotify play-pause",
-        "on-scroll-up": "playerctl --player=spotify previous",
-        "on-scroll-down": "playerctl --player=spotify next",
-        "escape": true,
-        "exec": "~/.config/waybar/scripts/spotify.sh"
-    },
-    "hyprland/language": {
-        "format": "󰌌 {}",
-        "format-en": "Eng"
-    },
-    "tray": {
-        "icon-size": 18
-    },
-    "clock": {
-        "format-alt": "{:%a, %d. %b  %H:%M}"
-    },
-    "custom/launcher": {
-        "format": " "
-    },
-    "custom/power": {
-        "format": "⏻ ",
-        "on-click": "wlogout"
-    },
-    "pulseaudio": {
-        "format": "{icon}  {volume}%",
-        "format-bluetooth": "{icon}",
-        "format-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": " ",
-            "headset": " ",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": [
-                "",
-                ""
-            ]
-        },
-        "scroll-step": 1,
-        "on-click": "pavucontrol",
-        "ignored-sinks": [
-            "Easy Effects Sink"
-        ]
-    },
-    "battery": {
-        "bat": "BAT1",
-        "interval": 60,
-        "states": {
-            "average": 70,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-icons": [
-            " ",
-            " ",
-            " ",
-            " ",
-            " "
-        ],
-        "max-length": 25
+    "actions": {
+      "on-click-right": "mode"
     }
+  },
+  "hyprland/window": {
+    "format": " {}",
+    "max-length": 40
+  },
+  "hyprland/workspaces": {
+    "all-outputs": false,
+    "disable-scroll": true,
+    "format": "{name}"
+  },
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 16,
+    "icon-theme": "Papirus-Dark",
+    "tooltip-format": "{title}",
+    "active-first": false,
+    "sort-by-app-id": true,
+    "on-click": "minimize-raise",
+    "on-click-middle": "close",
+    "on-click-right": "maximize",
+    "ignore-list": [],
+    "app_ids-mapping": {},
+    "rewrite": {}
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 4
+  },
+  "wireplumber": {
+    "format": "{icon}  {volume}% ",
+    "format-muted": " ",
+    "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "max-volume": 100,
+    "format-icons": [
+      " ",
+      " ",
+      " "
+    ]
+  },
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{icon}",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": " ",
+      "headset": " ",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        ""
+      ]
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "ignored-sinks": [
+      "Easy Effects Sink"
+    ]
+  },
+  "custom/logout": {
+    "format": " ",
+    "on-click": "wlogout",
+    "tooltip": false
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  }
 }

@@ -1,13 +1,14 @@
 * {
-  font-family: "Inter Variable Medium";
-  font-size: 12px;
-  font-weight: 700;
-  padding: 0 4px;
+  font-family: Inter Display;
+  font-size: 14px;
+  font-weight: 800;
+  padding: 0 3px;
 }
 
 window#waybar {
-  background-color: rgba(10, 10, 20, 0.8);
+  background-color: #000000;
   border-radius: 5px;
+  background: rgba(10, 10, 20, 0.5);
 }
 
 #workspaces button {
@@ -55,20 +56,13 @@ tooltip label {
 
 #backlight {
   color: #7fbbb3;
+
 }
 
 #custom-spotify {
+  border-radius: 5px;
   background: #6b8e69;
   color: #282828;
-  border-radius: 5px;
-  padding: 0 5px;
-  margin: 5px 0;
-}
-
-#window {
-  background: #A6DBFF;
-  color: #282828;
-  border-radius: 5px;
   padding: 0 5px;
   margin: 5px 0;
 }

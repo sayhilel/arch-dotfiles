@@ -1,0 +1,97 @@
+{
+  "layer": "top",
+  "position": "top",
+  "spacing": 6,
+  "modules-left": [
+    "custom/launcher",
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "clock",
+    "custom/spotify-menu",
+    "custom/spotify"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "battery",
+    "backlight",
+    "tray",
+    "custom/power"
+  ],
+  "custom/spotify": {
+    "format": "  {}",
+    "max-length": 300,
+    "exec-if": "pgrep spotify",
+    "exec-on-event": "on-click",
+    "interval": 1,
+    "return-type": "json",
+    "on-click": "playerctl --player=spotify play-pause",
+    "on-scroll-up": "playerctl --player=spotify previous",
+    "on-scroll-down": "playerctl --player=spotify next",
+    "escape": true,
+    "exec": "~/.config/waybar/scripts/spotify.sh"
+  },
+  "tray": {
+    "icon-size": 18
+  },
+  "clock": {
+    "format-alt": "{:%a, %d. %b  %H:%M}"
+  },
+  "custom/launcher": {
+    "format": " ",
+    "on-click": "rofi -show drun"
+  },
+  "custom/power": {
+    "format": "⏻ ",
+    "on-click": "wlogout"
+  },
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{icon}",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": " ",
+      "headset": " ",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        ""
+      ]
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "ignored-sinks": [
+      "Easy Effects Sink"
+    ]
+  },
+  "battery": {
+    "bat": "BAT1",
+    "interval": 60,
+    "states": {
+      "average": 70,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-icons": [
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
+    ],
+    "max-length": 25
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": [
+      " ",
+      " "
+    ]
+  }
+}

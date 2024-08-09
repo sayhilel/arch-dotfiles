@@ -91,3 +91,5 @@ export GOBIN=$GOPATH/bin
 export GOMODCACHE=$GOPATH/pkg/mod
 export PATH=$PATH:$GOBIN
 
+alias neofetch=fastfetch
+alias firefox=firefox-developer-edition

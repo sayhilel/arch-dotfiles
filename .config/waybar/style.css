@@ -10,8 +10,9 @@
 }
 
 window#waybar {
-  border-radius: 10px 10px 10px 10px;
-  background: #141b1e;
+  border-radius: 0px 0px 15px 15px;
+  border: 2px solid #181825;
+  background: #060100;
   color: #dadada;
 }
 

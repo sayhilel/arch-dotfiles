@@ -5,8 +5,10 @@
   "layer": "top",
   "position": "top",
   "height": 36,
+  "width": 1600,
   "spacing": 1,
   "modules-left": [
+    "clock",
     "hyprland/workspaces",
     "hyprland/window"
   ],
@@ -17,8 +19,8 @@
   "modules-right": [
     "custom/notification",
     "tray",
-    "clock",
     "wireplumber",
+    "backlight",
     "battery"
   ],
   // -------------------------------------------------------------------------
@@ -146,5 +148,13 @@
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous",
     "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": [
+      " ",
+      " "
+    ]
   }
 }

@@ -1,50 +1,55 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "transient_prompt": {
+    "template": "➜ ",
+    "foreground": "#ffffff",
+    "background": "transparent"
+  },
   "blocks": [
     {
+      "type": "prompt",
       "alignment": "left",
       "segments": [
         {
-          "foreground": "#E06C75",
           "style": "plain",
           "template": "root <#ffffff>in</> ",
+          "foreground": "#E06C75",
           "type": "root"
         },
         {
-          "foreground": "#55B9C4",
           "properties": {
             "style": "full"
           },
           "style": "plain",
           "template": "{{ .Path }} ",
+          "foreground": "#55B9C4",
           "type": "path"
         },
         {
-          "foreground": "#C678DD",
           "properties": {
             "fetch_status": true
           },
           "style": "plain",
           "template": "<#ffffff>on</> {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }} ",
+          "foreground": "#C678DD",
           "type": "git"
         },
         {
-          "foreground": "#98C379",
           "properties": {
             "fetch_version": true
           },
           "style": "plain",
           "template": "<#ffffff>via</> \ue781 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
+          "foreground": "#98C379",
           "type": "node"
         },
         {
-          "foreground": "#C94A16",
           "style": "plain",
           "template": "x ",
+          "foreground": "#C94A16",
           "type": "status"
         },
         {
-          "foreground": "#98C379",
           "properties": {
             "display_mode": "environment",
             "fetch_virtual_env": true,
@@ -52,29 +57,24 @@
           },
           "style": "plain",
           "template": "{{ if .Venv }}({{ .Venv }}){{ end }} ",
+          "foreground": "#98C379",
           "type": "python"
         }
-      ],
-      "type": "prompt"
+      ]
     },
     {
+      "type": "prompt",
       "alignment": "left",
-      "newline": true,
       "segments": [
         {
-          "foreground": "#63F08C",
           "style": "plain",
-          "template": "\u279c ",
+          "template": "➜ ",
+          "foreground": "#63F08C",
           "type": "text"
         }
       ],
-      "type": "prompt"
+      "newline": true
     }
   ],
-  "transient_prompt": {
-    "background": "transparent",
-    "foreground": "#ffffff",
-    "template": "\u279c "
-  },
-  "version": 2
+  "version": 3
 }

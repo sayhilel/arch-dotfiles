@@ -1,74 +1,61 @@
 * {
-  font-family: "Inter Variable Medium";
-  font-size: 12px;
-  font-weight: 700;
-  padding: 0 4px;
+  border: none;
+  border-radius: 0;
+  font-family: "monospace", "Symbols Nerd Font";
+  font-weight: bold;
+  font-size: 13px;
+  min-height: 0;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 window#waybar {
-  background-color: rgba(10, 10, 20, 0.8);
-  border-radius: 5px;
-}
-
-#workspaces button {
-  background-color: transparent;
-  color: #ffffff;
-}
-
-#workspaces button.active {
-  color: #00bfbc;
-}
-
-#workspaces button.focused {
-  background-color: #505760;
-  box-shadow: inset 0 -3px #ffffff;
+  border-radius: 10px 10px 10px 10px;
+  background: #141b1e;
+  color: #dadada;
 }
 
 tooltip {
-  background: #1b1e22;
+  background: #141b1e;
+  border-radius: 0px;
 }
 
-tooltip label {
-  color: white;
+#workspaces button {
+  padding: 3px;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #232a2d;
 }
 
-
-#battery {
-  color: #7fbbb3;
+#workspaces button.active {
+  color: @text;
 }
 
-#battery.warning {
-  color: #ffc100;
+#workspaces button.focused {
+  color: #dadada;
+  background: #141b1e;
 }
 
-#battery.critical {
-  color: #c40c0c;
+#workspaces button.urgent {
+  color: #11111b;
+  background: #141b1e;
 }
 
-#battery.average {
-  color: #219c90;
+#workspaces button:hover {
+  background: #141b1e;
+  color: #dadada;
 }
 
-#battery.charging {
-  color: #8decb4;
-}
-
+#window,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#bluetooth,
+#temperature,
+#workspaces,
+#tray,
 #backlight {
-  color: #7fbbb3;
-}
-
-#custom-spotify {
-  background: #6b8e69;
-  color: #282828;
-  border-radius: 5px;
-  padding: 0 5px;
-  margin: 5px 0;
-}
-
-#window {
-  background: #A6DBFF;
-  color: #282828;
-  border-radius: 5px;
-  padding: 0 5px;
-  margin: 5px 0;
+  color: #dadada;
+  padding: 7px 7px;
 }

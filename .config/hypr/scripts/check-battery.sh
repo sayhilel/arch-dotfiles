@@ -1,5 +1,5 @@
 #!/bin/env bash
-notify_levels=(5 10 20 22)
+notify_levels=(5 10 20)
 BAT=$(ls /sys/class/power_supply | grep BAT | head -n 1)
 last_notify=100
 
@@ -14,8 +14,9 @@ while true; do
               notify-send "Low Battery " --icon="/home/croxymoc/Media/images/low-battery-level.png" -t 5000 "$bat_lvl% battery remaining."
                 last_notify=$bat_lvl
 
-                # If battery level is 5%, suspend-then-hibernate the system
                 if [ $bat_lvl -le 5 ]; then
+                    notify-send "Hibernating: " --icon="/home/croxymoc/Media/images/low-battery-level.png" -t 5000 "$bat_lvl% battery remaining."
+                    sleep 20
                     systemctl suspend-then-hibernate
                 fi
             fi
@@ -23,4 +24,3 @@ while true; do
     done
     sleep 60
 done
-

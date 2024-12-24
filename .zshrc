@@ -67,7 +67,7 @@ alias vim='nvim'
 alias c='clear'
 alias z=cd
 alias air='~/Utils/go/bin/air'
-
+alias ll='ls -la'
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"

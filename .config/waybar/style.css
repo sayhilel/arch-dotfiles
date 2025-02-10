@@ -1,62 +1,218 @@
+@define-color ws rgba(180, 180, 200, 0.3);
+@define-color tt rgba(180, 180, 200, 0.3);
+@define-color clock rgba(180, 180, 220, 0.3);
+@define-color set rgba(170, 200, 220, 0.3);
+@define-color tb #222832;
+@define-color tbh rgba(200, 220, 250, 0.15);
+@define-color text rgba(220, 220, 240, 0.8);
+
+
+/* general */
 * {
-  border: none;
-  border-radius: 0;
-  font-family: "monospace", "Symbols Nerd Font";
-  font-weight: bold;
-  font-size: 13px;
-  min-height: 0;
-  margin-left: 5px;
-  margin-right: 5px;
+	all: unset;
+	font-family: "JetBrains Mono";
+	border: none;
+	border-radius: 5px;
 }
 
 window#waybar {
-  border-radius: 0px 0px 15px 15px;
-  border: 2px solid #181825;
-  background: #060100;
-  color: #dadada;
+	background-color: rgba(0, 0, 0, 0.3);
+	transition-property: background-color;
+	transition-duration: .5s;
 }
 
-tooltip {
-  background: #141b1e;
-  border-radius: 0px;
+/* workspaces */
+#workspaces {
+	margin: 4px 1px 4px 1px;
+	padding: 0px 0px;
+	border-radius: 5px;
+	border: 0px;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 16px;
+	color: @text;
+	opacity: 0.9;
 }
 
 #workspaces button {
-  padding: 3px;
-  margin-left: 5px;
-  margin-right: 5px;
-  color: #232a2d;
+	margin: 0px 2px;
+	padding: 0px 5px;
+	color: @text;
+	transition: all 0.3s ease-in-out;
 }
 
 #workspaces button.active {
-  color: @text;
-}
-
-#workspaces button.focused {
-  color: #dadada;
-  background: #141b1e;
-}
-
-#workspaces button.urgent {
-  color: #11111b;
-  background: #141b1e;
+	color: @text;
+	background: @ws;
+	transition: all 0.3s ease-in-out;
+	opacity: 0.9;
 }
 
 #workspaces button:hover {
-  background: #141b1e;
-  color: #dadada;
+	color: @text;
+	background: @ws;
+	opacity: 0.9;
+	border: none;
+	box-shadow: none;
 }
 
-#window,
-#clock,
-#battery,
-#pulseaudio,
-#network,
-#bluetooth,
-#temperature,
-#workspaces,
-#tray,
-#backlight {
-  color: #dadada;
-  padding: 7px 7px;
+/* taskbar */
+#taskbar {
+	background: @tb;
+	margin: 4px 15px 4px 1px;
+	padding: 0px;
+}
+
+#taskbar button {
+	margin: 0px 1px;
+	border-radius: 5px;
+	padding: 0px 5px;
+}
+
+#taskbar button:hover {
+	background: @tbh;
+	opacity: 1;
+	border: none;
+	box-shadow: none;
+}
+
+/* tooltip */
+tooltip {
+	border-radius: 5px;
+	background-color: @tt;
+	opacity: 0.8;
+}
+
+tooltip label {
+	border-radius: 5px;
+	background-color: @tt;
+	opacity: 0.8;
+	padding: 0px;
+	margin: -5px 0px;
+	font-size: 12px;
+	color: @text;
+}
+
+/* modules */
+.modules-left>widget:first-child>#workspaces {
+	margin-left: 10;
+}
+
+.modules-right>widget:last-child>#workspaces {
+	margin-right: 0;
+}
+
+/*Tray */
+#tray {
+	background: @ws;
+	margin: 4px 15px;
+	padding: 0px;
+}
+
+/* clock */
+#clock {
+	background-color: @clock;
+	font-size: 12px;
+	color: @text;
+	border-radius: 5px;
+	padding: 1px 10px 0px 10px;
+	margin: 4px 1px;
+	opacity: 0.9;
+	border: none;
+}
+
+/*media*/
+#custom-media {
+	background-color: @tb;
+	font-size: 12px;
+	color: @text;
+	border-radius: 5px;
+	padding: 1px 10px 0px 10px;
+	margin: 4px 1px;
+	opacity: 0.9;
+	border: none;
+}
+
+/* audio */
+#wireplumber {
+	background-color: @set;
+	font-size: 16px;
+	color: @text;
+	border-radius: 5px;
+	padding: 1px 10px 0px 10px;
+	margin: 4px 1px;
+	opacity: 0.9;
+}
+
+/* battery */
+#battery {
+	background-color: @set;
+	font-size: 16px;
+	color: @text;
+	border-radius: 5px;
+	padding: 1px 10px 0px 10px;
+	margin: 4px 1px;
+	opacity: 0.9;
+}
+
+#battery.charging,
+#battery.plugged {
+	color: @text;
+	background-color: @set;
+}
+
+@keyframes blink {
+	to {
+		background-color: @set;
+		color: @text;
+	}
+}
+
+#battery.critical:not(.charging) {
+	background-color: #f53c3c;
+	color: @text;
+	animation-name: blink;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+/* tray */
+#tray {
+	padding: 1px 10px 0px 10px;
+	margin: 4px 1px;
+	color: @text;
+}
+
+#tray>.passive {
+	-gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+	-gtk-icon-effect: highlight;
+}
+
+/* custom modules */
+#custom-exit {
+	margin: 0px 18px 0px 5px;
+	padding: 0px;
+	font-size: 20px;
+	color: @text;
+}
+
+#custom-updates.red {
+	background-color: #dc2f2f;
+	color: #FFFFFF;
+}
+
+#custom-notification,
+#backlight,
+#custom-ppd {
+	background-color: @set;
+	border-radius: 5px;
+	padding: 0px 10px 0px 10px;
+	margin: 4px 1px;
+	color: @text;
+	opacity: 0.9;
 }

@@ -9,6 +9,7 @@ return {
 		},
 		config = function()
 			-- LSP Config Setup
+			require("lazydev")
 			local lspconfig_defaults = require("lspconfig").util.default_config
 			lspconfig_defaults.capabilities = vim.tbl_deep_extend(
 				"force",
@@ -69,18 +70,5 @@ return {
 				},
 			})
 		end,
-	},
-
-	-- LazyDev
-	{
-		"folke/lazydev.nvim",
-		ft = "lua", -- only load on lua files
-		opts = {
-			library = {
-				-- See the configuration section for more details
-				-- Load luvit types when the `vim.uv` word is found
-				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-			},
-		},
 	},
 }

@@ -62,12 +62,15 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
 alias cat=bat
+alias s="kitten ssh"
 alias ls='ls --color'
 alias vim='nvim'
-alias c='clear'
+alias c=clear
 alias z=cd
 alias air='~/Utils/go/bin/air'
 alias ll='ls -la'
+alias vi=nvim
+
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
@@ -96,20 +99,20 @@ alias firefox=firefox-developer-edition
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/croxymoc/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/croxymoc/Utils/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/croxymoc/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/home/croxymoc/miniforge3/etc/profile.d/conda.sh"
+    if [ -f "/home/croxymoc/Utils/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/home/croxymoc/Utils/miniforge3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/croxymoc/miniforge3/bin:$PATH"
+        export PATH="/home/croxymoc/Utils/miniforge3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 
-if [ -f "/home/croxymoc/miniforge3/etc/profile.d/mamba.sh" ]; then
-    . "/home/croxymoc/miniforge3/etc/profile.d/mamba.sh"
+if [ -f "/home/croxymoc/Utils/miniforge3/etc/profile.d/mamba.sh" ]; then
+    . "/home/croxymoc/Utils/miniforge3/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
 

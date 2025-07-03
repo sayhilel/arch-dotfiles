@@ -1,3 +1,0 @@
-[binds]
-
-<Shift+X> = exec ~/.config/imv/delimage.sh;

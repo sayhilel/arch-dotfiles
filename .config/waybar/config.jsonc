@@ -16,14 +16,14 @@
 		"hyprland/workspaces"
 	],
 	"modules-center": [
-		"clock"
+		"clock",
+		"custom/notification"
 	],
 	"modules-right": [
-		"custom/notification",
-		"wireplumber",
 		"tray",
 		"power-profiles-daemon",
 		"backlight",
+		"wireplumber",
 		"battery"
 	]
 }

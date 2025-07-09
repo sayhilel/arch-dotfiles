@@ -17,24 +17,14 @@
 }
 
 #custom-notification,
-#cpu,
 #power-profiles-daemon,
 #battery,
-#network,
-#bluetooth,
-#pulseaudio,
+#wireplumber,
 #backlight,
+#tray,
 #clock {
   min-width: 12px;
   margin-right: 13px;
-}
-
-tooltip {
-  padding: 2px;
-}
-
-tooltip label {
-  padding: 2px;
 }
 
 * {

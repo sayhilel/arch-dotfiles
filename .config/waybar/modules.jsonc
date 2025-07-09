@@ -17,13 +17,14 @@
 		"tooltip": false
 	},
 	"wireplumber": {
-		"format": "{icon}  {volume}% ",
-		"format-muted": " ",
-		"on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
-		"on-click-right": "flatpak run com.saivert.pwvucontrol",
+		"format": "{volume}% {icon}",
+		"format-muted": "",
+		"tooltip": false,
+		"on-click-right": "wpctl set-mute @DEFAULT_SINK@ toggle",
+		"on-click": "flatpak run com.saivert.pwvucontrol",
 		"max-volume": 100,
 		"format-icons": [
-			" ",
+			"",
 			" ",
 			" "
 		]
@@ -34,9 +35,9 @@
 			"warning": 30,
 			"critical": 10
 		},
-		"format": "{icon} {capacity}%",
-		"format-charging": " {capacity}%",
-		"format-plugged": " {capacity}%",
+		"format": "{capacity}% {icon}",
+		"format-charging": "{capacity}% ",
+		"format-plugged": "{capacity}% ",
 		"format-icons": [
 			"",
 			"",

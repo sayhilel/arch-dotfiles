@@ -1,2 +1,5 @@
 export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_QPA_PLATFORM=wayland
+env = XCURSOR_SIZE,24
+env = HYPRCURSOR_SIZE,24
+

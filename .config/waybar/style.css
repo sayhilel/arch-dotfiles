@@ -1,34 +1,27 @@
 * {
-  border: none;
-  border-radius: 0;
-  min-height: 0;
   font-family: JetBrainsMono Nerd Font;
   font-size: 16px;
 }
 
-#workspaces {
-  margin-left: 7px;
+window#waybar {
+    background: @theme_base_color;
+    border-bottom: 1px solid @unfocused_borders;
+    color: @theme_text_color;
 }
 
-#workspaces button {
-  all: initial;
-  padding: 2px 6px;
-  margin-right: 3px;
-}
-
+#clock,
 #custom-notification,
-#power-profiles-daemon,
-#battery,
-#wireplumber,
-#backlight,
 #tray,
-#clock {
-  min-width: 12px;
-  margin-right: 13px;
+#power-profiles-daemon,
+#backlight,
+#wireplumber,
+#battery
+{
+  border: 0.1em solid rgba(111, 111, 111, 1);
+  border-radius: 0.25em;
+  min-width: 2em;
+  padding: 0em 1.25em;
 }
 
-* {
-  color: #e0e0e0;
-  background-color: #131516;
-}
+
 

@@ -3,11 +3,10 @@
 		"on-click": "activate",
 		"active-only": false,
 		"all-outputs": true,
-		"format": "{}",
+		"format": "{icon}",
 		"format-icons": {
-			"urgent": "",
-			"active": "",
-			"default": ""
+			"active": "",
+			"default": ""
 		}
 	},
 	"clock": {
@@ -20,19 +19,19 @@
 		"format": "{volume}% {icon}",
 		"format-muted": "",
 		"tooltip": false,
-		"on-click-right": "wpctl set-mute @DEFAULT_SINK@ toggle",
-		"on-click": "flatpak run com.saivert.pwvucontrol",
+		"on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+		"on-click-right": "flatpak run com.saivert.pwvucontrol",
 		"max-volume": 100,
 		"format-icons": [
 			"",
-			" ",
-			" "
+			"",
+			""
 		]
 	},
 	"battery": {
 		"states": {
-			"good": 95,
-			"warning": 30,
+			"good": 90,
+			"warning": 20,
 			"critical": 10
 		},
 		"format": "{capacity}% {icon}",
@@ -47,7 +46,7 @@
 		]
 	},
 	"tray": {
-		"spacing": 10
+		"spacing": 12
 	},
 	"custom/notification": {
 		"tooltip": false,
@@ -80,8 +79,9 @@
   			}
 	},
 	"backlight": {
+		"on-click" : "bash ~/.config/scripts/hypridle-toggle.sh",
     		"device": "intel_backlight",
     		"format": "{percent}% {icon}",
-    	"format-icons": ["", ""]
+	    	"format-icons": ["", ""]
 	}
 }

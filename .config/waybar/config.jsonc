@@ -5,10 +5,9 @@
 	"position": "top",
 	"margin-top": 0,
 	"margin-bottom": 0,
-	"layer": "top",
+	"layer": "bottom",
 	"margin-left": 0,
 	"margin-right": 0,
-	"spacing": 10,
 	"fixed-center": true,
 	"exclusive": true,
 	// modules
@@ -22,6 +21,7 @@
 	"modules-right": [
 		"tray",
 		"power-profiles-daemon",
+		"idle_inhibitor",
 		"backlight",
 		"wireplumber",
 		"battery"

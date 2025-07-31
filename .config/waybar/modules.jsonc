@@ -79,9 +79,15 @@
   			}
 	},
 	"backlight": {
-		"on-click" : "bash ~/.config/scripts/hypridle-toggle.sh",
     		"device": "intel_backlight",
     		"format": "{percent}% {icon}",
 	    	"format-icons": ["", ""]
-	}
+	},
+	"idle_inhibitor": {
+    		"format": "{icon}",
+    		"format-icons": {
+        		"activated": " ",
+        		"deactivated": " "
+    		}
+    	}
 }

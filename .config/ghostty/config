@@ -1,1 +1,2 @@
 theme = Brogrammer
+gtk-single-instance = true

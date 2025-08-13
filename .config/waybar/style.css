@@ -1,20 +1,23 @@
 * {
-  font-family: JetBrainsMono Nerd Font;
-  font-size: 14px;
+  font-family: Inter Regular, JetBrainsMono Nerd Font;
+  font-size: 16px;
   box-shadow: none;
 }
 
 window#waybar {
   background: @theme_base_color;
   color: @theme_text_color;
-  padding: 4px 8px;
   border-radius: 0em 0em 0em 0em;
 }
 
-#clock,
-#custom-notification {
-  min-width: 2em;
-  padding: 0.2em 0.8em;
+#workspaces button.active {
+ background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+
+}
+
+#clock {
+  padding: 0.2em 0.6em;
 }
 
 #tray,
@@ -22,10 +25,10 @@ window#waybar {
 #backlight,
 #wireplumber,
 #idle_inhibitor,
+#custom-notification,
 #battery {
   min-width: 2em;
-  padding: 0.2em 0.8em;
-  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0em 0.8em;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   margin: 0 4px;
@@ -33,6 +36,7 @@ window#waybar {
 }
 
 #tray:hover,
+#custom-notification:hover,
 #power-profiles-daemon:hover,
 #backlight:hover,
 #wireplumber:hover,

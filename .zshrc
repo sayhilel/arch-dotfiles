@@ -103,3 +103,25 @@ eval "$(zoxide init zsh)"
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
 source <(fzf --zsh)
+
+## NODE
+nvm() {
+    unset -f nvm
+	export NVM_DIR="$HOME/.config/nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" 
+    nvm "$@"
+}
+
+node() {
+    unset -f node
+	export NVM_DIR="$HOME/.config/nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+    node "$@"
+}
+
+npm() {
+    unset -f npm
+	export NVM_DIR="$HOME/.config/nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" 
+    npm "$@"
+}

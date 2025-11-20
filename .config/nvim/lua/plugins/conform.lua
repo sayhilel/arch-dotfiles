@@ -13,7 +13,7 @@ return {
         yaml = { "yq", "prettier" },
         markdown = { "prettier" },
         lua = { "stylua" },
-        python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
+        python = { "black" },
         sql = { "sqruff" },
       },
       format_on_save = {

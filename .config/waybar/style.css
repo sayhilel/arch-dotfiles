@@ -1,19 +1,20 @@
 * {
-  font-family: Inter Regular, JetBrainsMono Nerd Font;
+  font-family:
+    Inter Regular,
+    JetBrainsMono Nerd Font;
   font-size: 16px;
   box-shadow: none;
 }
 
 window#waybar {
-  background: @theme_base_color;
+  background: #000000;
   color: @theme_text_color;
   border-radius: 0em 0em 0em 0em;
 }
 
 #workspaces button.active {
- background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.2);
-
 }
 
 #clock {
@@ -32,7 +33,9 @@ window#waybar {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   margin: 0 4px;
-  transition: background 0.3s ease, border 0.3s ease;
+  transition:
+    background 0.3s ease,
+    border 0.3s ease;
 }
 
 #tray:hover,
@@ -51,4 +54,3 @@ window#waybar {
   border-color: rgba(255, 0, 0, 0.4);
   color: #fff;
 }
-

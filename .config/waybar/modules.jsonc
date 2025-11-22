@@ -1,11 +1,15 @@
 {
-	"hyprland/workspaces": {
-		"on-click": "activate",
-		"active-only": false,
-		"show-special": true,
-		"all-outputs": true,
-		"format": "{icon}",
-	},
+    "niri/workspaces": {
+        "format": "<span size='larger'>{icon}</span>",
+		"active-only" : true,
+        "on-click": "activate",
+        "format-icons": {
+            "active": "\uf444",
+            "default": "\uf4c3"
+        },
+        "icon-size": 10,
+        "sort-by-number": true,
+    },
 	"clock": {
 		"interval": 1,
 		"format": "{:%I:%M %p - %A, %B %d}",

@@ -1,0 +1,201 @@
+input {
+	focus-follows-mouse
+    keyboard {
+        xkb {
+            layout "us"
+        }
+    }
+
+    touchpad {
+        natural-scroll
+    }
+}
+
+//
+// OUTPUTS
+//
+output "eDP-1" {
+    mode "1920x1080"
+    scale 1.0
+    transform "normal"
+}
+
+//
+//
+// output "DP-1" {
+//     mode "2560x1440@165"
+//     position x=1920 y=0
+// }
+
+// output "DP-2" {
+//     mode "preferred"
+//     position x=4480 y=0
+// }
+
+// output "DP-3" {
+//     mode "preferred"
+//     position x=6400 y=0
+// }
+
+layout {
+    gaps 5
+
+    center-focused-column "never"
+
+    focus-ring {
+        width 2
+        active-color "#ffffff"
+        inactive-color "#595959aa"
+    }
+
+    border {
+        off
+    }
+
+    shadow {
+        on
+        softness 4
+        spread 3
+        offset x=0 y=5
+        color "#1a1a1aee"
+    }
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+}
+
+// AUTOSTART
+spawn-at-startup
+spawn-at-startup "cliphist wipe"
+spawn-at-startup "swayosd-server"
+spawn-at-startup "wl-paste --watch cliphist store"
+
+environment {
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+    QT_QPA_PLATFORM "wayland;xcb"
+    GDK_BACKEND "wayland,x11,*"
+    XCURSOR_THEME "macOS"
+    XCURSOR_SIZE "32"
+}
+
+prefer-no-csd
+
+//
+// WINDOW RULES — float + center
+//
+window-rule {
+    match app-id=r#"^(org\.keepassxc\.KeePassXC|blueman-manager|thunar|com\.saivert\.pwvucontrol|nm-connection-editor|nwg-look|org\.mozilla\.Thunderbird|org\.gnome\.Loupe|xdg-desktop-portal-gtk|com\.cisco\.secureclient\.gui)$"#
+    open-floating true
+}
+
+window-rule {
+    match title="^Calendar Reminders$"
+    open-floating true
+}
+
+//
+// KEYBINDS
+//
+binds {
+
+    //
+    // Applications
+    //
+    Mod+T { spawn "wezterm"; }
+    Mod+B { spawn "firefox"; }
+    Mod+F { spawn "thunar"; }
+    Mod+N { spawn "flatpak run md.obsidian.Obsidian"; }
+
+    //
+    // Launcher
+    //
+    Alt+Space { spawn "fuzzel"; }
+    Mod+V { spawn "~/dotfiles/.config/scripts/fuzzel-clipboard.sh"; }
+    Alt+Period { spawn "bemoji" "-t"; }
+
+    //
+    // Window focus (matching Hyprland directions)
+    //
+    Mod+Left  { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+Up    { focus-window-up; }
+    Mod+Down  { focus-window-down; }
+
+    //
+    // Close window
+    //
+    Mod+Q { close-window; }
+
+    //
+    // Workspaces 1–10
+    //
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+0 { focus-workspace 10; }
+
+    Mod+Ctrl+1 { move-column-to-workspace 1; }
+    Mod+Ctrl+2 { move-column-to-workspace 2; }
+    Mod+Ctrl+3 { move-column-to-workspace 3; }
+    Mod+Ctrl+4 { move-column-to-workspace 4; }
+    Mod+Ctrl+5 { move-column-to-workspace 5; }
+    Mod+Ctrl+6 { move-column-to-workspace 6; }
+    Mod+Ctrl+7 { move-column-to-workspace 7; }
+    Mod+Ctrl+8 { move-column-to-workspace 8; }
+    Mod+Ctrl+9 { move-column-to-workspace 9; }
+    Mod+Ctrl+0 { move-column-to-workspace 10; }
+
+    //
+    // Floating toggle
+    //
+    Mod+W { toggle-window-floating; }
+
+    //
+    // Fullscreen
+    //
+    Mod+Return { fullscreen-window; }
+
+    //
+    // Multimedia (converted from Hyprland)
+    //
+    XF86AudioRaiseVolume { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
+    XF86AudioLowerVolume { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioMute        { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute     { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+    XF86MonBrightnessUp   { spawn "brightnessctl" "set" "+10%"; }
+    XF86MonBrightnessDown { spawn "brightnessctl" "set" "10%-"; }
+
+    //
+    // Playerctl
+    //
+    XF86AudioNext { spawn "playerctl" "next"; }
+    XF86AudioPrev { spawn "playerctl" "previous"; }
+    XF86AudioPlay { spawn "playerctl" "play-pause"; }
+    XF86AudioPause { spawn "playerctl" "play-pause"; }
+
+    //
+    // Screenshots
+    //
+    Shift+Print { spawn-sh "grim -g \"$(slurp)\" - | swappy -f -"; }
+    Print       { spawn-sh "grim - | swappy -f -"; }
+
+    //
+    // Workspace scroll (Hyprland: mainMod + mouse wheel)
+    //
+    Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
+
+}
+

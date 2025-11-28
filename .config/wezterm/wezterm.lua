@@ -10,10 +10,10 @@ config.initial_cols = 120
 config.initial_rows = 28
 
 -- or, changing the font size and color scheme.
-config.font_size = 14
+config.font_size = 12
 
 config.window_frame = {
-	font_size = 14,
+	font_size = 12,
 }
 
 -- Finally, return the configuration to wezterm:

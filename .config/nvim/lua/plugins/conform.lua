@@ -10,6 +10,7 @@ return {
         css = { "prettier" },
         html = { "prettier" },
         json = { "prettier" },
+        jsonc = { "prettier" },
         yaml = { "yq", "prettier" },
         markdown = { "prettier" },
         lua = { "stylua" },

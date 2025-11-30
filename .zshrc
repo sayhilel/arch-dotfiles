@@ -96,8 +96,6 @@ HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='i'
 
 # VIM Motions
 
-alias ls='ls --color'
-
 eval "$(zoxide init zsh)"
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"

@@ -1,29 +1,27 @@
 {
-	// load modules
 	"include": "~/.config/waybar/modules.jsonc",
-	// general settings
 	"position": "top",
 	"margin-top": 0,
-	"margin-bottom": 0,
+	"margin-bottom":0 ,
 	"layer": "bottom",
 	"margin-left": 0,
 	"margin-right": 0,
 	"fixed-center": true,
 	"exclusive": true,
-	// modules
 	"modules-left": [
-		"niri/workspaces"
+		"niri/window"
 	],
 	"modules-center": [
-		"clock",
-		"custom/notification"
+		"niri/workspaces"
 	],
 	"modules-right": [
 		"tray",
 		"power-profiles-daemon",
 		"idle_inhibitor",
+		"custom/notification",
 		"backlight",
 		"wireplumber",
+		"clock",
 		"battery"
 	]
 }

@@ -35,11 +35,7 @@ cursor {
 
 
 debug {
-//    honor-xdg-activation-with-invalid-serial
-}
-
-switch-events {
-    lid-close { spawn "sh" "-c" "hyprlock" "&&" "systemctl" "suspend-then-hibernate";}
+    honor-xdg-activation-with-invalid-serial
 }
 
 output "eDP-1" {
@@ -78,7 +74,7 @@ layout {
 
     focus-ring {
         // off
-        width 4
+        width 2
 
         active-color "rgba(255,255,255,1)"
 
@@ -193,6 +189,12 @@ binds {
     XF86AudioMute        allow-when-locked=true { spawn  "swayosd-client" "--output-volume" "mute-toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn  "swayosd-client" "--input-volume" "mute-toggle"; }
 
+	// Player
+	XF86AudioNext {spawn "playerctl" "next";}
+	XF86AudioPause {spawn "playerctl" "play-pause";}
+ 	XF86AudioPlay {spawn "playerctl" "play-pause";}
+ 	XF86AudioPrev {spawn "playerctl" "previous";}
+	
     // Brightness
     XF86MonBrightnessUp allow-when-locked=true { spawn "swayosd-client" "--brightness" "+10"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "swayosd-client" "--brightness" "-10"; }
@@ -445,5 +447,10 @@ window-rule {
 
 window-rule {
     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
-    default-floating-position x=100 y=100 relative-to="bottom-right"
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+}
+
+window-rule {
+  geometry-corner-radius 12
+  clip-to-geometry true
 }

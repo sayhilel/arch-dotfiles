@@ -1,0 +1,28 @@
+* {
+  box-shadow: none;
+}
+
+window {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#clock-label {
+  font-size: 0;
+}
+
+#input-label {
+  font-size: 0;
+}
+
+#input-field {
+}
+
+#runshell {
+  margin-top: 4em;
+}
+
+#window-box {
+  margin-top: 54em;
+}

@@ -1,94 +1,89 @@
 {
-    "niri/workspaces": {
-        "format": "<span size='larger'>{icon}</span>",
-		"active-only" : true,
-        "on-click": "activate",
-        "format-icons": {
-            "active": "\uf444",
-            "default": "\uf4c3"
-        },
-        "icon-size": 10,
-        "sort-by-number": true,
+  "niri/workspaces": {
+    "format": "<span size='larger'>{icon}</span>",
+    "format-icons": {
+      "active": "\uf444",
+      "default": "\uf4c3",
     },
-	"clock": {
-		"interval": 1,
-		"format": "{:%I:%M %p - %A, %B %d}",
-		"tooltip": false
-	},
-	"wireplumber": {
-		"format": "{volume}% {icon}",
-		"format-muted": "",
-		"tooltip": false,
-		"on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
-		"on-click-right": "flatpak run com.saivert.pwvucontrol",
-		"max-volume": 100,
-		"format-icons": [
-			"",
-			"",
-			""
-		]
-	},
-	"battery": {
-		"states": {
-			"good": 90,
-			"warning": 20,
-			"critical": 10
-		},
-		"format": "{capacity}% {icon}",
-		"format-charging": "{capacity}% ",
-		"format-plugged": "{capacity}% ",
-		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			""
-		]
-	},
-	"tray": {
-		"spacing": 12
-	},
-	"custom/notification": {
-		"tooltip": false,
-		"format": "{icon}",
-		"format-icons": {
-			"notification": "<span foreground='red'><sup></sup></span>",
-			"none": "",
-			"dnd-notification": "<span foreground='red'><sup></sup></span>",
-			"dnd-none": "",
-			"inhibited-notification": "<span foreground='red'><sup></sup></span>",
-			"inhibited-none": "",
-			"dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-			"dnd-inhibited-none": ""
-		},
-		"return-type": "json",
-		"exec-if": "which swaync-client",
-		"exec": "swaync-client -swb",
-		"on-click": "swaync-client -t -sw",
-		"on-click-right": "swaync-client -d -sw",
-		"escape": true
-	},
-	"power-profiles-daemon": {
-  		"format": "{icon}",
-  		"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-  		"tooltip": true,
-  		"format-icons": {
-    			"performance": "",
-    			"balanced": "",
-    			"power-saver": ""
-  			}
-	},
-	"backlight": {
-    		"device": "intel_backlight",
-    		"format": "{percent}% {icon}",
-	    	"format-icons": ["", ""],
-  		"tooltip": false
-	},
-	"idle_inhibitor": {
-    		"format": "{icon}",
-    		"format-icons": {
-        		"activated": "",
-        		"deactivated": ""
-    		}
-    	}
+  },
+  "clock": {
+    "interval": 1,
+    "format": "{:%H:%M}",
+    "format-alt": "{:%A, %B %d, %Y (%R)}",
+    "tooltip": false,
+  },
+  "wireplumber": {
+    "format": "{volume}% {icon}",
+    "format-muted": "",
+    "tooltip": false,
+    "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "flatpak run com.saivert.pwvucontrol",
+    "max-volume": 100,
+    "format-icons": ["", "", ""],
+  },
+  "battery": {
+    "states": {
+      "good": 90,
+      "warning": 20,
+      "critical": 10,
+    },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-icons": ["", "", "", "", ""],
+  },
+  "tray": {
+    "spacing": 12,
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": "",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "performance": "",
+      "balanced": "",
+      "power-saver": "",
+    },
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": ["", ""],
+    "tooltip": false,
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": "",
+    },
+  },
+
+  "niri/window": {
+    "format": "{}",
+    "rewrite": {
+      "(.*) - Mozilla Firefox": "🌎 $1",
+      "(.*) - zsh": "> [$1]",
+    },
+  },
 }
